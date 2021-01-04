@@ -93,7 +93,7 @@ class Blogs(Resource):
         return jsonify([blog.blog_json() for blog in blogs])
 
 
-api.add_resource(Blog, '/blog/<blog_id>')
+api.add_resource(Blog, '/blogs/<blog_id>')
 api.add_resource(Blogs, '/blogs')
 
 if __name__ == "__main__":
