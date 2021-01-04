@@ -81,12 +81,12 @@ Method: GET
 
 to get an individual blog
 ```python
-url: {{url}}/blog/{{blog_id}}
+url: {{url}}/blogs/{{blog_id}}
 Method: GET
 ```
 to update a blog
 ```python
-url: {{url}}/blog/{{blog_id}}
+url: {{url}}/blogs/{{blog_id}}
 body:
 {
 	"text":"sample blog",
@@ -97,6 +97,6 @@ Method: PUT
 ```
 to delete a blog
 ```python
-url: {{url}}/blog/{{blog_id}}
+url: {{url}}/blogs/{{blog_id}}
 Method: DELETE
 ```
