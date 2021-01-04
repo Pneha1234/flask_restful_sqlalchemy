@@ -1,0 +1,9 @@
+venv/
+
+# Pycharm
+.idea
+
+# Python
+__pycache__
+*.pyc
+blog.db
