@@ -14,26 +14,29 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///moru_blog.db'
 db = SQLAlchemy(app)
 
 
-class BaseModel(db.Model, Base):
-    __tablename__ = 'base_model'
-    __abstract__ = True
+# class BaseModel(db.Model, Base):
+#     __tablename__ = 'base_model'
+    # __abstract__ = True
+    #
+    # id = db.Column(db.String, primary_key=True)
+    # created_at = db.Column(db.DateTime)
+    # created_by = db.Column(db.String())
+    # updated_at = db.Column(db.DateTime)
+    # updated_by = db.Column(db.String())
+    #
+    # def __init__(self, **kwargs):
+    #     super(BaseModel, self).__init__(**kwargs)
+    #     self.id = str(uuid.uuid4())
+    #     self.created_at = datetime.utcnow()
+    #     user = g.get('user', None)
+    #     if user is not None:
+    #         self.created_by = user.get('user_id', None)
+
+
+class BlogModel(Base):
+    __tablename__ = 'blog_model'
 
     id = db.Column(db.String, primary_key=True)
-    created_at = db.Column(db.DateTime)
-    created_by = db.Column(db.String())
-    updated_at = db.Column(db.DateTime)
-    updated_by = db.Column(db.String())
-
-    def __init__(self, **kwargs):
-        super(BaseModel, self).__init__(**kwargs)
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.utcnow()
-        user = g.get('user', None)
-        if user is not None:
-            self.created_by = user.get('user_id', None)
-
-
-class BlogModel(BaseModel):
     text = db.Column(db.String(100))
     views = db.Column(db.Integer)
     likes = db.Column(db.Integer)
@@ -42,6 +45,7 @@ class BlogModel(BaseModel):
 
     def __init__(self, **kwargs):
         super().__init__()
+        self.id = str(uuid.uuid4())
         set_attributes(self, **kwargs)
 
     def blog_json(self):
