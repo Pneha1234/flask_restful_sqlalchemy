@@ -13,7 +13,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///moru_blog.db'
 db = SQLAlchemy(app)
 
 
-class BaseModel(db.Model):
+class BaseModel(db.Model, Base):
+    __tablename__ = 'base_model'
     __abstract__ = True
 
     id = db.Column(db.String, primary_key=True)
