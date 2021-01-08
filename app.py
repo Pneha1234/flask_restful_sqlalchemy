@@ -5,6 +5,7 @@ from flask import Flask, request, g, jsonify
 from flask_restful import Api, Resource, abort
 from flask_sqlalchemy import SQLAlchemy
 
+from migration import Base
 from validator_methods import set_attributes
 
 app = Flask(__name__)
