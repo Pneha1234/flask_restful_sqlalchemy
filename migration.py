@@ -6,6 +6,11 @@ Base = declarative_base()
 
 def main():
     Base.metadata.create_all(engine)
+    moru_blog_connection = engine.connect()
+    moru_blog_trans = moru_blog_connection.begin()
+    moru_blog_connection.execute("alter table blog_model add column active boolean default True;")
+    moru_blog_connection.execute("update blog_model set views=5  where views is null;")
+    moru_blog_trans.commit()
     print('tables created')
 
 
