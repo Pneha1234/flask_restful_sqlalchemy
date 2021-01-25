@@ -1,4 +1,4 @@
-# moru_flask_restful_sqlalchemy
+# flask_restful_sqlalchemy
 
 A sample project blog project for implemeting flask Restful and sqlalchemy using sqlite as database server
 
